@@ -1,0 +1,63 @@
+{
+  "formatVersion" : 1,
+  "passTypeIdentifier" : "pass.com.jacm.sample",
+  "serialNumber" : "8j23fm3",
+  "webServiceURL" : "https://example.com/passes/",
+  "authenticationToken" : "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc",
+  "teamIdentifier" : "TLF2DB634G",
+  "barcode" : {
+    "message" : "123456789",
+    "format" : "PKBarcodeFormatQR",
+    "messageEncoding" : "iso-8859-1"
+  },
+  "organizationName" : "Juan CANEPA",
+  "description" : "Unity HardRock",
+  "logoText" : " ",
+  "foregroundColor" : "rgb(255, 255, 255)",
+  "backgroundColor" : "rgb(197, 31, 31)",
+  "labelColor": "rgb(255, 255, 255)",
+  "generic" : {
+    "primaryFields": [
+      {
+        "key" : "accountnumber",
+        "label" : "MEMBER NUMBER",
+        "value" : "00000000000000"
+      }
+    ],
+    "secondaryFields" : [
+      {
+        "key" : "name",
+        "label" : "NAME",
+        "value" : "John Doe"
+      },
+      {
+        "key" : "tier",
+        "label" : "MEMBER TIER",
+        "value" : "STAR",
+        "textAlignment" : "PKTextAlignmentRight"
+      }
+    ],
+    "backFields": [
+      {
+          "key": "first-name",
+          "label": "First Name",
+          "value": ""
+      },
+      {
+          "key": "last-name",
+          "label": "Last Name",
+          "value": ""
+      },
+      {
+          "key": "member-number",
+          "label": "Member Number",
+          "value": ""
+      },
+      {
+        "key": "member-tier",
+        "label": "Member Tier",
+        "value": ""
+      }
+    ]
+  }
+}
