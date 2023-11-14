@@ -36,12 +36,12 @@ const _copyPassToTemporaryLocation = async () => {
    }
 }
 
-const getId = ()  => {
+const _getSerial = ()  => {
    return Math.floor(Date.now() / 1000).toString();
  }
 
 const _fillJsonPass = async (data) => {
-   jsonPass.serialNumber = getId();
+   jsonPass.serialNumber = _getSerial();
    jsonPass.generic.primaryFields[0].value = data.accountNumber;
    jsonPass.generic.secondaryFields[0].value = data.name.toUpperCase();
    jsonPass.generic.secondaryFields[1].value = data.tier.toUpperCase();
