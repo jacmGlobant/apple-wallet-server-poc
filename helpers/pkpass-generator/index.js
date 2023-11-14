@@ -40,14 +40,14 @@ const getId = ()  => {
    return Math.floor(Date.now() / 1000).toString();
  }
 
-const _replaceJsonPass = async (data) => {
+const _fillJsonPass = async (data) => {
    jsonPass.serialNumber = getId();
    jsonPass.generic.primaryFields[0].value = data.accountNumber;
-   jsonPass.generic.secondaryFields[0].value = data.name;
-   jsonPass.generic.secondaryFields[1].value = data.tier;
+   jsonPass.generic.secondaryFields[0].value = data.name.toUpperCase();
+   jsonPass.generic.secondaryFields[1].value = data.tier.toUpperCase();
    jsonPass.backgroundColor = mapBgToTier[data.tier];
-   jsonPass.generic.backFields[0].value = data.name.split(' ')[0];
-   jsonPass.generic.backFields[1].value = data.name.split(' ')[1];
+   jsonPass.generic.backFields[0].value = data.name.split(' ')[0].toUpperCase();
+   jsonPass.generic.backFields[1].value = data.name.split(' ')[1].toUpperCase();
    jsonPass.generic.backFields[2].value = data.accountNumber;
    jsonPass.generic.backFields[3].value = data.tier;
    await writeFile(path.resolve(`${OUTPUT_PASS_DIR}/pass.json`), JSON.stringify(jsonPass, null, 3));
@@ -56,7 +56,7 @@ const _replaceJsonPass = async (data) => {
 const generatePkPass = async (data) => {
    await _createTemporaryDirectory();
    await _copyPassToTemporaryLocation();
-   await _replaceJsonPass(data);
+   await _fillJsonPass(data);
 
    const pass = await PKPass.from({
       model: path.resolve('./helpers/pkpass-generator/tmp/sample.pass'),
